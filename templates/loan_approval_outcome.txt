@@ -1,0 +1,2 @@
+{# Template containing desciption of classifier output. #}
+Based on the decision of our automated loan approval system, your loan has been \textbf{\textcolor{red}{ {{ acceptance }}. }}

@@ -1,0 +1,14 @@
+{# Template for generating base explanation. 
+- feature_vals : dict like of feature values 
+- num_feats : number of features to display
+- feats_by_contrib : list of feature names ordered by composite contribution in descending order
+- attributions : dict like of composite feature attributions 
+- ordinals : fist num_feats original numbers in order#}
+The feature of your application that contributed most to the classifier's decision was your 
+\textbf{ {{ feats_by_contrib[0]}} }of {{feature_vals[feats_by_contrib[0]]}}. It was assigned a contribution score of {{ attributions[feats_by_contrib[0]] | round}} \%. {% if num_feats != 1 %} The 
+next {{num_feats - 1}} most contributing features in order of importance are:
+{% for i in range(1, num_feats) %}
+The {{ordinals[i+1]}} most contributing feature  of your application was your \textbf{ {{feats_by_contrib[i]}} } of {{feature_vals[feats_by_contrib[i]]}}. 
+It was assigned a contribution score of {{attributions[feats_by_contrib[i]] | round}} \%.
+{% endfor %}
+{% endif %}
